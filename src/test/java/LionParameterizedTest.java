@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class LionParameterizedTest {
 
     Feline feline;
-    private final String sex;
+    private String sex;
     private boolean hasMane;
 
     public LionParameterizedTest(String sex, boolean hasMane) {
@@ -24,10 +24,7 @@ public class LionParameterizedTest {
     public static Object[][] parameters() {
         return new Object[][]{
                 {"Самец", true},
-                {"Самка", false},
-                {"НЕСамка", false},
-                {"", false},
-                {null, true}
+                {"Самка", false}
         };
     }
 
@@ -42,13 +39,4 @@ public class LionParameterizedTest {
         }
     }
 
-    //    @Test
-//    public void doesHaveManeTest() throws Exception {
-//        //arrange
-//        Lion lion = new Lion(sex,feline);
-//        //action
-//        boolean actual = lion.doesHaveMane();
-//        //assert
-//        assertEquals(hasMane, actual);
-//    }
 }

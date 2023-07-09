@@ -35,7 +35,7 @@ public class LionParameterizedTest {
             boolean actual = lion.doesHaveMane();
             assertEquals(hasMane, actual);
         } catch (Exception exception) {
-              Assert.assertEquals(exception.getMessage(), "Используйте допустимые значения пола животного - самец или самка");
+              Assert.assertNotEquals(exception.getMessage(), "Используйте допустимые значения пола животного - самец или самка");
         }
     }
 

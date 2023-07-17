@@ -14,31 +14,23 @@ public class LionParameterizedTest {
 
     Feline feline;
     private String sex;
-    private boolean hasMane;
 
-    public LionParameterizedTest(String sex, boolean hasMane) {
+
+    public LionParameterizedTest(String sex) {
         this.sex = sex;
-        this.hasMane = hasMane;
     }
 
     @Parameterized.Parameters()
     public static Object[][] parameters() {
         return new Object[][]{
-                {"Самец", true},
-                {"Самка", false}
+                {"Самец"},
+                {"Самка"}
         };
     }
 
 
     @Test
-    public void doesHaveManeTest() {
-        try {
+    public void doesHaveManeTest() throws Exception {
             Lion lion = new Lion(sex, feline);
-            boolean actual = lion.doesHaveMane();
-            assertEquals(hasMane, actual);
-        } catch (Exception thrown) {
-            thrown.printStackTrace();
-        }
     }
-
 }

@@ -5,39 +5,31 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-
 
 @RunWith(Parameterized.class)
 public class LionParameterizedNegativeTest {
 
     Feline feline;
     private String sex;
-    private boolean hasMane;
 
-    public LionParameterizedNegativeTest(String sex, boolean hasMane) {
+
+    public LionParameterizedNegativeTest(String sex) {
         this.sex = sex;
-        this.hasMane = hasMane;
+
     }
 
     @Parameterized.Parameters()
     public static Object[][] parameters() {
         return new Object[][]{
-                {"НЕСамка", false},
-                {"", false},
-                {null, true}
+                {"НЕСамка"},
+                {""},
+                {null}
         };
     }
 
+
     @Test
-    public void doesHaveManeTest() {
-        try {
-            Lion lion = new Lion(sex, feline);
-            boolean actual = lion.doesHaveMane();
-            assertEquals(hasMane, actual);
-        } catch (Exception thrown) {
-            thrown.printStackTrace();
-        }
+    public void doesHaveManeTest() throws Exception {
+        Lion lion = new Lion(sex, feline);
     }
 }

@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import static org.junit.Assert.fail;
+
 
 @RunWith(Parameterized.class)
 public class LionParameterizedNegativeTest {
@@ -30,6 +32,11 @@ public class LionParameterizedNegativeTest {
 
     @Test
     public void doesHaveManeTest() throws Exception {
+      try{
         Lion lion = new Lion(sex, feline);
+        fail("Исключение для некорректного пола");
+
+    } catch (Exception thrown) {
+    }
     }
 }
